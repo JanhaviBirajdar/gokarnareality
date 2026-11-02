@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-forest-deep: #050e0a;
+    --color-gold: #dfb752;
+    --color-sand: #f4ede2;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #050e0a;
+    color: #f7f4ee;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Luxury Film Grain Texture */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* Gold Text Shimmer */
+.gold-shimmer-text {
+  background: linear-gradient(
+    110deg,
+    #ebd59b 0%,
+    #ffffff 25%,
+    #dfb752 45%,
+    #f5e6b3 70%,
+    #b88a28 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: goldShimmer 8s linear infinite;
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Subtle Shimmer for Badges */
+.shimmer-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(223, 183, 82, 0.15) 50%,
+    transparent 100%
+  );
+  animation: shimmerSweep 4s ease-in-out infinite;
+}
+
+@keyframes shimmerSweep {
+  0% {
+    left: -150%;
+  }
+  60%, 100% {
+    left: 150%;
+  }
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050e0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1c3e32;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dfb752;
+}
+
